@@ -1,11 +1,15 @@
 import React from 'react';
+import AppLayout from './component/application/AppLayout'
+import TodoHeader from './component/todo/TodoHeader'
+import TodoBody from './component/todo/TodoBody'
 
 function TodoApp() {
   return (
     <React.Fragment>
-      <h1>
-        todo Application
-      </h1>
+      <AppLayout 
+        header={<TodoHeader />}
+        body={<TodoBody />}
+      />
     </React.Fragment>
   );
 }
