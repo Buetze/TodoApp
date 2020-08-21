@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PageNtFoundPage: React.FC = () => {
+const PageNotFoundPage: React.FC = () => {
     return (
         <div>
             <h1>PageNotFound</h1>
@@ -8,4 +8,4 @@ const PageNtFoundPage: React.FC = () => {
     )
 }
 
-export default PageNtFoundPage
+export default PageNotFoundPage

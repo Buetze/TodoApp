@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoApp from './TodoApp';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoApp /> 
+    <Router >
+      <TodoApp /> 
+    </Router >
   </React.StrictMode>,
   document.getElementById('root')
 );
