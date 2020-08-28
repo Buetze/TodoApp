@@ -1,8 +1,9 @@
 import React from 'react'
+import TodoContent from './TodoContent'
 
-const TodoBodyPage : React.FC = () => {
+const TodoBodyPage: React.FC = () => {
     return (
-        <h1>Body Works</h1>
+        <TodoContent />
     )
 }
 
