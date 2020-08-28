@@ -17,7 +17,7 @@ const TodoHeader: React.FC = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        <h1>Header</h1>
+                        Header
                     </Typography>
                     <Button variant="contained" color="secondary" className={classes.menuLink}>
                         <Link to="/todo" >Todo</Link>
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     menuLink: {
-        margin: theme.spacing,
+        margin: theme.spacing(2),
     },
     title: {
         flexGrow: 1,
