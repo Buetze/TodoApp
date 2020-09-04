@@ -1,6 +1,8 @@
 import React from 'react';
 
- import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+
+import { useTodoInitDataHook } from './model/todo_data_init_hook'
 
 
 import AppLayout from './component/application/AppLayout'
@@ -10,9 +12,13 @@ import PageNotFoundPage from './component/notfound/PageNotFoundPage'
 import AboutPage from './component/about/AboutPage'
 
 function TodoApp() {
+
+
+  useTodoInitDataHook();
+
   let body = <PageNotFoundPage />
 
-  switch ( useLocation().pathname ){
+  switch (useLocation().pathname) {
     case '/':
     case '/todo':
       body = <TodoBodyPage />
@@ -24,9 +30,9 @@ function TodoApp() {
 
   return (
     <React.Fragment>
-      <AppLayout 
+      <AppLayout
         header={<TodoHeader />}
-        body={ body }
+        body={body}
       />
     </React.Fragment>
   );

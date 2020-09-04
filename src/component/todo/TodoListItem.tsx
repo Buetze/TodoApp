@@ -3,24 +3,33 @@ import { Todo } from '../../model/Todo';
 import { ListItem, ListItemIcon, Checkbox, ListItemText, IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 
+import { useStoreActions } from '../../store/StoreModel'
+
 interface ITodoListItem {
     todo: Todo
 }
 
 
-const TodoListItem: React.FC<ITodoListItem> = (props) => {
+const TodoListItem: React.FC<ITodoListItem> = ({ todo }) => {
+    const deleteTodo = useStoreActions(actions => actions.todoModel.deleteTodo)
+    const toggleTodo = useStoreActions(actions => actions.todoModel.toggleTodo)
     return (
-        <ListItem dense key={props.todo.id}>
+        <ListItem dense key={todo.id}>
             <ListItemIcon>
                 <Checkbox
                     edge="start"
-                    checked={props.todo.completed}
-                    onClick={handleToggle}
+                    checked={todo.completed}
+                    onClick={() => toggleTodo(todo)}
                 />
 
             </ListItemIcon>
-            <ListItemText>{props.todo.title}</ListItemText>
-            <IconButton edge="end" aria-label="comments">
+            <ListItemText
+                primary={todo.title}
+                onClick={() => console.log('textclick')}
+            />
+            <IconButton edge="end" aria-label="comments"
+                onClick={() => deleteTodo(todo)}
+            >
                 <Delete />
             </IconButton>
         </ListItem>
@@ -28,11 +37,3 @@ const TodoListItem: React.FC<ITodoListItem> = (props) => {
 }
 
 export default TodoListItem;
-
-// function Hello(props: any) {
-//     return <p>hello {props.title}</p>
-// }
-
-const handleToggle = (value: any) => {
-    return value.target.checked = !value.target.checked
-}
